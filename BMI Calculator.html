@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BMI CALCULATOR</title>
+	<style type="text/css">
+		h1
+		{
+			text-align: center;
+			font-size: 40px;
+			color: blue;
+		}
+		div
+		{
+			text-align: center;
+			margin-top: 200px;
+		}
+		#n1,#n2
+		{
+			height: 30px;
+			width: 250px;
+			margin: 10px;
+		}
+		#n1
+		{
+			margin-bottom: 30px;
+		}
+		table
+		{
+			margin-top: 10px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		#l1,#l2
+		{
+			color: mediumblue;
+			font-size: 23px;
+		}
+		#b1
+		{
+			height: 30px;
+			width: 150px;
+			margin-top: 30px;
+		}
+		#b1:hover
+		{
+			background-color: skyblue;
+			color: white;
+		}
+		#h11
+		{
+			font-size: 20px;
+		}
+	</style>
+	<script type="text/javascript">
+		function bmi()
+		{
+			let x = document.getElementById('n1').value;
+			let y = document.getElementById('n2').value;
+			let h = x/100;
+			let n = (y/(h*h));
+			    if (n<16)
+				{
+					limit="(Severe Thinness)";
+					document.getElementById('h11').style.color="red";
+				}
+				if (n>=16 && n<=17)
+				{
+					limit="(Moderate Thinness)";
+					document.getElementById('h11').style.color="red";
+				}
+				if (n>17 && n<=18.5)
+				{
+					limit="(Mild Thinness)";
+					document.getElementById('h11').style.color="yellow";
+				}
+				if (n>18.5 && n<=25)
+				{
+					limit="(Normal)";
+					document.getElementById('h11').style.color="green";
+				}
+				if (n>25 && n<=30)
+				{
+					limit="(Over Weight)";
+					document.getElementById('h11').style.color="yellow";
+				}
+				if (n>30 && n<=35)
+				{
+					limit="(Obses class I)";
+					document.getElementById('h11').style.color="red";
+				}
+				if (n>35 && n<=40)
+				{
+					limit="(Obses class II)";
+					document.getElementById('h11').style.color="red";
+				}
+				if (n>40)
+				{
+					limit="(Obses class III)";
+					document.getElementById('h11').style.color="darkred";
+				}
+				document.getElementById('h11').innerHTML="BMI = "+Math.round(n)+" "+limit;
+		}
+	</script>
+</head>
+<body>
+	<h1>BMI CALCULATOR</h1>
+	<div>
+		<table>
+			<tr>
+				<td><label id="l1">Enter height</label></td>
+			</tr>
+			<tr>
+				<td><input id="n1" type="number" name="" required=""><span>cm</span></td>
+			</tr>
+			<tr>
+				<td><label id="l2">Enter weight</label></td>
+			</tr>
+			<tr>
+				<td><input id="n2" type="number" name="" required=""><span>kg</span></td>
+			</tr>
+			<tr>
+				<td><input id="b1" type="submit" value="Calculate" onclick="bmi()"></td>
+			</tr>
+		</table>
+
+		<p id="h11"></p>
+	</div>
+</body>
+</html>
